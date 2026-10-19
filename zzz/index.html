@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sniffing Room - Luxury Perfume Catalog</title>
+    <!-- FontAwesome untuk Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header / Navbar Sniffing Room -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="goHome()">
+                <i class="fa-solid fa-spray-can-sparkles"></i> Sniffing Room
+            </div>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Cari brand atau parfum impianmu...">
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+        
+        <!-- TAMPILAN 1: HALAMAN UTAMA (PILIH BRAND) -->
+        <div id="home-view" class="view-section active">
+            <div class="hero-banner">
+                <h1>Selamat Datang di Sniffing Room</h1>
+                <p>Temukan mahakarya aroma parfum eksklusif pilihanmu. Pilih salah satu brand di bawah ini untuk melihat koleksinya.</p>
+            </div>
+
+            <h2 class="section-title"><i class="fa-solid fa-layer-group"></i> Pilih Brand Parfum</h2>
+            
+            <div class="brand-card-grid">
+                <!-- Card Brand Mykonos -->
+                <div class="brand-card" onclick="selectBrand('mykonos')">
+                    <div class="brand-img-box">
+                        <img src="img/mykonos1.jpeg" alt="Mykonos" onerror="this.src='img/mykonos1.jpg'">
+                    </div>
+                    <div class="brand-info">
+                        <h3>Mykonos Collection</h3>
+                        <p>Aroma mewah, elegan, dan tahan lama hingga 12 jam.</p>
+                        <span class="explore-btn">Jelajahi Produk <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </div>
+
+                <!-- Card Brand Velixir -->
+                <div class="brand-card" onclick="selectBrand('velixir')">
+                    <div class="brand-img-box">
+                        <img src="img/velixir1.png" alt="Velixir" onerror="this.src='img/velixir1.jpg'">
+                    </div>
+                    <div class="brand-info">
+                        <h3>Velixir Collection</h3>
+                        <p>Racikan oud eksotis dan rempah pilihan kelas atas.</p>
+                        <span class="explore-btn">Jelajahi Produk <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </div>
+
+                <!-- Card Brand Bali Surfers -->
+                <div class="brand-card" onclick="selectBrand('bali')">
+                    <div class="brand-img-box">
+                        <img src="img/bali surfers1.jpeg" alt="Bali Surfers" onerror="this.src='img/bali surfers1.jpg'">
+                    </div>
+                    <div class="brand-info">
+                        <h3>Bali Surfers Collection</h3>
+                        <p>Kesegaran tropical dan nuansa pantai yang dinamis.</p>
+                        <span class="explore-btn">Jelajahi Produk <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAMPILAN 2: KATALOG PRODUK / HASIL PENCARIAN -->
+        <div id="catalog-view" class="view-section">
+            <div class="catalog-header-nav">
+                <button class="btn-back" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Kembali ke Pilih Brand</button>
+                <h2 id="catalog-brand-title" class="section-title" style="margin: 0; border: none;">Nama Brand</h2>
+            </div>
+            
+            <div class="product-grid" id="product-grid">
+                <!-- Produk dimasukkan otomatis lewat JavaScript -->
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Modal Pop-up Detail Produk (Tanpa Varian ml & Tombol Beli) -->
+    <div class="modal-overlay" id="product-modal">
+        <div class="modal-content">
+            <button class="close-btn" id="close-modal">&times;</button>
+            <div class="modal-body">
+                <div class="modal-img-container">
+                    <img id="modal-img" src="" alt="Detail Produk">
+                </div>
+                <div class="modal-info">
+                    <span class="badge-mall" id="modal-brand-tag">Sniffing Room Official</span>
+                    <h2 id="modal-title">Nama Produk</h2>
+
+                    <div class="product-description">
+                        <h3>Detail & Karakter Aroma:</h3>
+                        <p id="modal-desc">Deskripsi lengkap parfum akan muncul di sini.</p>
+                        <ul class="spec-list">
+                            <li><strong>Ketahanan:</strong> 8 - 12 Jam (Eau De Parfum)</li>
+                            <li><strong>Lokasi Pengiriman:</strong> <span id="modal-location">Kota Jakarta</span></li>
+                            <li><strong>Sertifikasi:</strong> BPOM Approved 100% Original</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
